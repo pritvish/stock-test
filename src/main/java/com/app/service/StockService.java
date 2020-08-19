@@ -24,8 +24,8 @@ public class StockService {
         return stockList;
     }
 
-    public List<Stock> deleteStockList(Stock stockToDelete) {
-        stockList.remove(stockToDelete);
+    public List<Stock> deleteStockList(int idx) {
+        stockList.remove(idx);
         return stockList;
     }
 }

@@ -25,25 +25,23 @@ public class StockServiceTest {
         Assert.assertEquals(stockList.size() + 1, newStockList.size());
     }
 
-//    @Test
-//    public void testStockModify() {
-//        List<Stock> stockList = Stock.stockList();
-//        Stock stock = new Stock(5,"fridge",45678,1234);
-//        List<Stock> newStockList = stockService.addStockList(stock);
-//
-//        Assert.assertEquals(5,newStockList.get(4).getStockId());
-//    }
+    @Test
+    public void testStockModify() {
+        Stock stock = new Stock(5,"fridge",45678,1234);
+        List<Stock> newStockList = stockService.addStockList(stock);
+        Assert.assertEquals(45678, newStockList.get(4).getPrice());
+    }
 
     @Test
     public void testStockDeletion() {
         Stock stock = new Stock(1, "laptop", 40000, 7000);
-        List<Stock> newStockList = stockService.deleteStockList(stock);
+        List<Stock> newStockList = stockService.deleteStockList(0);
         Assert.assertEquals(stockList.size() - 1, newStockList.size());
     }
 
     @AfterClass
     public static void afterClass() {
         List<Stock> stockList = Stock.stockList();
-        stockList.add(new Stock(1, "laptop", 40000, 7000));
+        stockList.add(0,new Stock(1, "laptop", 40000, 7000));
     }
 }
